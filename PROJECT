@@ -1,0 +1,11 @@
+domain: redradrat.xyz
+layout: go.kubebuilder.io/v2
+projectName: s3-operator
+repo: github.com/redradrat/aws-s3-operator
+resources:
+- group: aws-s3
+  kind: Bucket
+  version: v1beta1
+version: 3-alpha
+plugins:
+  go.sdk.operatorframework.io/v2-alpha: {}

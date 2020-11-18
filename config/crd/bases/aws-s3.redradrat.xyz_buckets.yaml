@@ -1,0 +1,91 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.2.5
+  creationTimestamp: null
+  name: buckets.aws-s3.redradrat.xyz
+spec:
+  group: aws-s3.redradrat.xyz
+  names:
+    kind: Bucket
+    listKind: BucketList
+    plural: buckets
+    singular: bucket
+  scope: Namespaced
+  subresources:
+    status: {}
+  validation:
+    openAPIV3Schema:
+      description: Bucket is the Schema for the buckets API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: BucketSpec defines the desired state of Bucket
+          properties:
+            acl:
+              description: "ACL contains a \"canned ACL\" as a string. https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl
+                \n Examples: \"private\", \"public-read\""
+              type: string
+            blockPublicAcls:
+              description: Settings for blocking public access https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-options
+              type: boolean
+            blockPublicPolicy:
+              type: boolean
+            ignorePublicAcls:
+              type: boolean
+            objectLock:
+              description: ObjectLock enables and disables object locking
+              type: boolean
+            restrictPublicBuckets:
+              type: boolean
+            transferAcceleration:
+              description: TransferAcceleration enables and disables transfer acceleration
+                for this bucket
+              type: boolean
+            versioning:
+              description: Versioning enables and disables object versioning
+              type: boolean
+          required:
+          - acl
+          - blockPublicAcls
+          - blockPublicPolicy
+          - ignorePublicAcls
+          - objectLock
+          - restrictPublicBuckets
+          - transferAcceleration
+          - versioning
+          type: object
+        status:
+          description: BucketStatus defines the observed state of Bucket
+          properties:
+            initialized:
+              type: boolean
+          required:
+          - initialized
+          type: object
+      type: object
+  version: v1beta1
+  versions:
+  - name: v1beta1
+    served: true
+    storage: true
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

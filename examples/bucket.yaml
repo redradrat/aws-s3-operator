@@ -1,0 +1,14 @@
+apiVersion: aws-s3.redradrat.xyz/v1beta1
+kind: Bucket
+metadata:
+  name: bucket-sample
+  namespace: default
+spec:
+  acl: private
+  objectLock: false
+  versioning: true
+  transferAcceleration: false
+  blockPublicAcls: true
+  ignorePublicAcls: true
+  blockPublicPolicy: true
+  restrictPublicBuckets: true
