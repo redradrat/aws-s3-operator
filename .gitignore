@@ -1,3 +1,5 @@
+# Goreleaser
+dist
 
 # Binaries for programs and plugins
 *.exe
@@ -22,3 +24,14 @@ bin
 *.swp
 *.swo
 *~
+dist/aws-s3-operator_darwin_amd64/
+dist/aws-s3-operator_linux_386/
+dist/aws-s3-operator_linux_amd64/
+dist/aws-s3-operator_v0.0.0-next_Darwin_x86_64.tar.gz
+dist/aws-s3-operator_v0.0.0-next_Linux_i386.tar.gz
+dist/aws-s3-operator_v0.0.0-next_Linux_x86_64.tar.gz
+dist/aws-s3-operator_v0.0.0-next_Windows_i386.tar.gz
+dist/aws-s3-operator_v0.0.0-next_Windows_x86_64.tar.gz
+dist/checksums.txt
+dist/config.yaml
+dist/goreleaserdocker267169292/

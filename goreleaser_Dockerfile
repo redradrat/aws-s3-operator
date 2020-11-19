@@ -1,0 +1,6 @@
+FROM gcr.io/distroless/static:nonroot
+WORKDIR /
+COPY aws-s3-operator .
+USER nonroot:nonroot
+
+ENTRYPOINT ["/aws-s3-operator"]
